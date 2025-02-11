@@ -1,0 +1,4 @@
+@EndUserText.label: 'Servicio expone de Assignmet'
+define service Z_SD_ASSIGNMENT {
+  expose Z_C_ASSIGNMENT as Assignment;
+}

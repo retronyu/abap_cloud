@@ -1,0 +1,4 @@
+@EndUserText.label: 'SD de CO EMPLOYEE'
+define service Z_SD_EMPLOYEE {
+  expose Z_CO_EMPLOYEE as c_employee;
+}

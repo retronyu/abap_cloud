@@ -1,0 +1,37 @@
+@Metadata.layer: #PARTNER
+@UI:{ headerInfo:{ typeName: 'Empleados' , typeNamePlural: 'Empleados', title:{ type: #STANDARD ,label: 'Empleado', value: 'EmployeeId' }} }
+annotate view Z_CO_EMPLOYEE
+    with 
+{
+@UI.facet: [ { id:              'REG_EMP',
+                  purpose:         #STANDARD,
+                  type:            #IDENTIFICATION_REFERENCE,
+                  label:           'Registro de Empleados',
+                  position:        10 }]
+@UI           : {
+        lineItem      : [{position: 10, importance: #HIGH}],
+         identification: [{position: 10 }],
+        selectionField: [{position: 10 }]
+        }
+    EmployeeId;
+    @UI           : {
+        lineItem      : [{position: 20, importance: #HIGH}],
+         identification: [{position: 20 }],
+        selectionField: [{position: 20 }]
+        }
+    FirstName;
+    @UI           : {
+        lineItem      : [{position: 30, importance: #HIGH}],
+         identification: [{position: 30 }],
+        selectionField: [{position: 30 }]
+        }
+    LastName;
+   
+    @UI           : {
+        lineItem      : [{position: 40, importance: #HIGH}],
+         identification: [{position: 40 }],
+        selectionField: [{position: 40 }]
+        }
+    department;
+    
+}

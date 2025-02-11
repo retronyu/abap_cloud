@@ -1,0 +1,6 @@
+@EndUserText.label: 'El servicio expone los datos de viaje'
+define service Z_I_TRAVEL_R_FSO {
+  expose Z_I_TRAVEL_R_FSO;
+  expose /DMO/I_Agency    as Agency;
+  expose /DMO/I_Customer  as Customer;
+}

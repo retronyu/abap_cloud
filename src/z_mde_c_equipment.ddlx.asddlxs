@@ -1,0 +1,101 @@
+@Metadata.layer: #PARTNER
+@UI:{ headerInfo:{ typeName: 'Equipo' , typeNamePlural: 'Equipos', title:{ type: #STANDARD ,label: 'Equipo', value: 'Equipmentid' }} }
+
+
+
+annotate view Z_C_EQUIPMENT with
+{
+
+   // Definición de Facetas
+   //Faceta de registro de equipo
+  @UI.facet: [
+    { id: 'REG_EQUI',
+      purpose: #STANDARD,
+      type: #COLLECTION,
+      label: 'Registro de Equipo',
+      position: 10 },
+   //Faceta de mantenimiento de equipo
+   { id: 'MAINTENANCE_INFO',
+    purpose: #STANDARD,
+    type: #COLLECTION,
+    label: 'Información de Mantenimiento',
+    position: 20 }, 
+   //Faceta de Detalles tecnicos de equipo
+    { id: 'TECH_INFO',
+    purpose: #STANDARD,
+    type: #COLLECTION,
+    label: 'Información Técnica',
+    position: 30 },  
+
+    // Subfaceta para agrupar los campos del equipo
+    { id: 'Fieldgroup1-EQUI',
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Información del Equipo',
+      parentId: 'REG_EQUI',  // Se asocia a la faceta principal
+      targetQualifier: 'Fieldgroup1',
+      position: 10 },
+      
+      { id: 'Fieldgroup2-MAINT',
+    type: #FIELDGROUP_REFERENCE,
+    label: 'Detalles de Mantenimiento',
+    parentId: 'MAINTENANCE_INFO',
+    targetQualifier: 'Fieldgroup2',
+    position: 20 },
+    
+    { id: 'Fieldgroup3-TECH',
+    type: #FIELDGROUP_REFERENCE,
+    label: 'Detalles Técnicos',
+    parentId: 'TECH_INFO',
+    targetQualifier: 'Fieldgroup3',
+    position: 10 }
+    
+      
+  ]
+    //Btn Marcar en reparacion
+  @UI.identification: [{ type: #FOR_ACTION, dataAction: 'MarcarComoEnReparacion', label: 'Marcar como en Reparación', position: 20 }]
+
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup1', position: 10 }]
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  //@UI.identification: [{ position: 10 }]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZVALUEHELP_EQUIPMENT', element: 'Equipmentid' } }]
+  @EndUserText.label: 'Id del Equipo'
+  @Search.defaultSearchElement: true
+  Equipmentid;
+
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup1', position: 20 }]
+  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+  @UI.selectionField: [{ position: 20 }]
+  @EndUserText.label: 'Descripción'
+  Description;
+    
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup3', position: 10 }]
+  @UI.lineItem: [{ position: 30, importance: #HIGH }]
+  @UI.selectionField: [{ position: 30 }]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZVALUEHELP_EQUIPMENT', element: 'Equipmenttype' } }]
+  @EndUserText.label: 'Tipo de equipo'
+  Equipmenttype;
+
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup3', position: 20 }]
+  @UI.lineItem: [{ position: 40, importance: #HIGH , criticality: 'StatusCriticality'}]
+  @UI.selectionField: [{ position: 40 }]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZVALUEHELP_EQUIPMENT', element: 'Status' } }]
+  @EndUserText.label: 'Estatus'
+  Status;
+
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup2', position: 10 }]
+  @UI.lineItem: [{ position: 50, importance: #HIGH }]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZVALUEHELP_EQUIPMENT', element: 'LocationId' } }]
+  @EndUserText.label: 'Id de Ubicación'
+  LocationId;
+  
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup2', position: 20 }]
+  @UI.lineItem: [{ position: 60, importance: #HIGH }]
+  @EndUserText.label: 'Último mantenimiento'
+  Lastmaintenancedate;
+
+
+
+
+
+
+}

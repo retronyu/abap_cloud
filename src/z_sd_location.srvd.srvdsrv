@@ -1,0 +1,4 @@
+@EndUserText.label: 'SD de C LOCATION'
+define service Z_SD_LOCATION {
+  expose Z_C_LOCATION as Location;
+}

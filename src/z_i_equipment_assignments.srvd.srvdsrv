@@ -1,0 +1,8 @@
+@EndUserText.label: 'Definicion de servicio'
+define service Z_I_EQUIPMENT_ASSIGNMENTS {
+  expose Z_I_EQUIPMENT_ASSIGNMENTS as EquipmentandAssigment;
+  expose Z_C_LOCATION              as Location;
+  expose Z_C_EQUIPMENT             as Equipment;
+  expose Z_CO_EMPLOYEE             as c_employee;
+  expose Z_C_ASSIGNMENT            as Assignment;
+}

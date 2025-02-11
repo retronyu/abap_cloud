@@ -1,0 +1,25 @@
+managed implementation in class zbp_assignment unique;
+//strict ( 2 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for Z_Assignment alias Assignment // SE DEBE ASIGNAR UN ALIAS
+persistent table zassignment_gp
+lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+    // ESTAS SON LAS OPCIONES QUE VIENEN POR DEFECTO PARA REALIZAR EN OPERACIONES CRUD
+  create;
+  update;
+  delete;
+  //field ( readonly ) AssignmentId;
+
+  mapping for zassignment_gp
+  {
+  // SE DEBE ENLAZAR LOS CAMPOS DE LA VISTA CON LOS DE LA TABLA
+  AssignmentDate = assignment_date;
+  AssignmentId = assignment_id;
+  EmployeeId = employee_id;
+  EquipmentId = equipment_id;
+
+    }
+}

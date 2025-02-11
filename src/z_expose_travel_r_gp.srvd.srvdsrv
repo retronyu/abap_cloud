@@ -1,0 +1,5 @@
+@EndUserText.label: 'Z_EXPOSE_TRAVEL_R_'
+define service Z_EXPOSE_TRAVEL_R_GP {
+  expose Z_I_TRAVEL_R_GP   as Travel;
+  expose Z_I_BOOKING_R_GP1 as Booking;
+}

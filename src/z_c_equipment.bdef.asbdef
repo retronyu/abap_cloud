@@ -1,0 +1,19 @@
+managed implementation in class zbp_c_equipment unique;
+strict ( 2 );
+
+define behavior for Z_C_EQUIPMENT //alias <alias_name>
+persistent table zequipment_gp
+lock master
+authorization master ( instance )
+//etag master Lastmaintenancedate;
+
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) Equipmentid;
+  action MarcarComoEnReparacion result [1] $self;
+
+  factory action newEquipment [1] ;
+
+}

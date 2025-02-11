@@ -1,0 +1,4 @@
+@EndUserText.label: 'SD de C EQUIPMENT'
+define service Z_SD_EQUIPMENT {
+  expose Z_C_EQUIPMENT as Equipment;
+}
