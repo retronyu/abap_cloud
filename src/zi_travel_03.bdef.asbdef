@@ -1,0 +1,17 @@
+managed implementation in class zbp_i_travel_03 unique;
+//strict ( 2 );
+
+define behavior for ZI_TRAVEL_03 //alias <alias_name>
+persistent table ztravel_03
+lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+ determination setTravelID on modify { create; }
+
+  field ( readonly ) Travelid;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'DEMO'
+define service Z_SD_TRAVEL {
+  expose ZC_TRAVEL_03;
+}

@@ -1,0 +1,65 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Viaje',
+    typeNamePlural: 'Viajes',
+    title: { type: #STANDARD, value: 'TravelID' }
+  }
+}
+annotate entity ZC_TRAVEL_03
+    with 
+{
+   @UI.facet: [
+    { id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    type: #COLLECTION,
+label: 'Información General',
+ position: 10 },
+    { id: 'DatesInfo',
+     purpose: #STANDARD, 
+     type: #COLLECTION,
+      label: 'Fechas del Viaje',
+       position: 20 },
+      
+       { id: 'Fieldgroup1-GeneralInfo',
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Información del Equipo',
+      parentId: 'REG_EQUI',  // Se asocia a la faceta principal
+      targetQualifier: 'Fieldgroup1',
+      position: 10 },
+      
+      { id: 'Fieldgroup2-DatesInfo',
+    type: #FIELDGROUP_REFERENCE,
+    label: 'Detalles de Mantenimiento',
+    parentId: 'MAINTENANCE_INFO',
+    targetQualifier: 'Fieldgroup2',
+    position: 20 }
+  ]
+
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup1', label: 'Datos del Cliente' }]
+ @UI           : {
+        lineItem      : [{position: 10, importance: #HIGH}],
+         identification: [{position: 10 }],
+        selectionField: [{position: 10 }]
+        }
+            Travelid;
+           
+           
+@UI.fieldGroup: [{ qualifier: 'Fieldgroup1', label: 'Datos del Cliente' }]
+  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+             @UI.identification: [{ position: 20 }]
+             @UI.selectionField: [{ position: 20 }]
+              Customerid;
+             
+
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup2', label: 'Fechas' }]
+  @UI.lineItem: [{ position: 30 }]
+            @UI.identification: [{ position: 30 }]
+            Begindate ;
+            
+ @UI.fieldGroup: [{ qualifier: 'Fieldgroup2', label: 'Fechas' }]
+ @UI.lineItem: [{ position: 40 }]
+          @UI.identification: [{ position: 40 }]
+            Enddate;
+    
+}
