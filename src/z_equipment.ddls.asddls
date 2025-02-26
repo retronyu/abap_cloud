@@ -11,7 +11,7 @@ define root view Z_Equipment
        description         as Description,
        equipmenttype       as Equipmenttype,
        status              as Status,
-       locationid          as LocationId,
+       location_id          as LocationId,
        lastmaintenancedate as Lastmaintenancedate
 }
 //

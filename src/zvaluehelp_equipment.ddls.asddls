@@ -13,6 +13,6 @@ define view entity ZVALUEHELP_EQUIPMENT as select from zequipment_gp
     description as Description,
     equipmenttype as Equipmenttype,
     status as Status,
-    locationid as Locationid,
+    location_id as Locationid,
     lastmaintenancedate as Lastmaintenancedate
 }
