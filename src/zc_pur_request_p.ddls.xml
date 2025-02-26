@@ -4,6 +4,8 @@
   <asx:values>
    <DDLS>
     <DDLNAME>ZC_PUR_REQUEST_P</DDLNAME>
+    <DDLANGUAGE>S</DDLANGUAGE>
+    <DDTEXT>Proyección de Solicitudes de Compra</DDTEXT>
     <SOURCE_TYPE>P</SOURCE_TYPE>
    </DDLS>
   </asx:values>

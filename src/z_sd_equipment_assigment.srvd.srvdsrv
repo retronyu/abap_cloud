@@ -1,0 +1,4 @@
+@EndUserText.label: 'O'
+define service Z_SD_EQUIPMENT_ASSIGMENT {
+  expose Z_C_EQUIPMENT_ASSIGNMENTS;
+}

@@ -4,6 +4,8 @@
   <asx:values>
    <DDLS>
     <DDLNAME>Z_C_EQUIPMENT_ASSIGNMENTS</DDLNAME>
+    <DDLANGUAGE>S</DDLANGUAGE>
+    <DDTEXT>Vista consumo</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

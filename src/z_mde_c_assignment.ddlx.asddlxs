@@ -1,35 +1,43 @@
 @Metadata.layer: #PARTNER
 annotate view Z_C_ASSIGNMENT with
 {
- @UI.facet: [ { id:              'Assignments',
-                  purpose:         #STANDARD,
-                  type:            #IDENTIFICATION_REFERENCE,
-                  label:           'Asignacion',
-                  position:        10 }]
+  @UI.facet: [ { 
+    id: 'Assignments',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Asignación',
+    position: 10 
+  }]
 
-
-  @UI           : {
-          lineItem      : [{position: 10, importance: #HIGH}],
-                           selectionField: [{position: 10 }],
-          identification: [{position: 10 , label: 'Id de asignacion'  }]
-          }
+  @UI: {
+    lineItem: [{ position: 10, importance: #HIGH }],
+    selectionField: [{ position: 10 }],
+    identification: [{ position: 10, label: 'Id de Asignación' }]
+  }
+  @EndUserText.label: 'Id de Asignación'
   AssignmentId;
-  @UI           : {
-      lineItem      : [{position: 20, importance: #HIGH}],
-                       selectionField: [{position: 20 }],
-                       identification: [{position: 20  }]
-      }
+
+  @UI: {
+    lineItem: [{ position: 20, importance: #HIGH }],
+    selectionField: [{ position: 20 }],
+    identification: [{ position: 20, label: 'Id de Equipo' }]
+  }
+  @EndUserText.label: 'Id de Equipo'
   EquipmentId;
-  @UI           : {
-      lineItem      : [{position: 30, importance: #HIGH}],
-                       selectionField: [{position: 30 }],
-                        identification: [{position: 30  }]
-      }
+
+  @UI: {
+    lineItem: [{ position: 30, importance: #HIGH }],
+    selectionField: [{ position: 30 }],
+    identification: [{ position: 30, label: 'Id de Empleado' }]
+  }
+  @EndUserText.label: 'Id de Empleado'
   EmployeeId;
-  @UI           : {
-      lineItem      : [{position: 40, importance: #HIGH}],
-                       selectionField: [{position: 40 }],
-                        identification: [{position: 40  }]
-      }
+
+  @UI: {
+    lineItem: [{ position: 40, importance: #HIGH }],
+    selectionField: [{ position: 40 }],
+    identification: [{ position: 40, label: 'Fecha de Asignación' }]
+  }
+  @EndUserText.label: 'Fecha de Asignación'
   AssignmentDate;
 }

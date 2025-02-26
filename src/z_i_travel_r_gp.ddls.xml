@@ -4,6 +4,8 @@
   <asx:values>
    <DDLS>
     <DDLNAME>Z_I_TRAVEL_R_GP</DDLNAME>
+    <DDLANGUAGE>S</DDLANGUAGE>
+    <DDTEXT>Travel Model View Entity - Read Only</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

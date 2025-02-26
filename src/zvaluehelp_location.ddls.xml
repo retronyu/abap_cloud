@@ -4,6 +4,8 @@
   <asx:values>
    <DDLS>
     <DDLNAME>ZVALUEHELP_LOCATION</DDLNAME>
+    <DDLANGUAGE>S</DDLANGUAGE>
+    <DDTEXT>AYUDA</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

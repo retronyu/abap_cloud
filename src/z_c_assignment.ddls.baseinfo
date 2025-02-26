@@ -3,7 +3,9 @@
 {
 "FROM":
 [
-"Z_ASSIGNMENT"
+"Z_ASSIGNMENT",
+"Z_EMPLOYEE",
+"Z_EQUIPMENT"
 ],
 "ASSOCIATED":
 [],

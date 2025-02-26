@@ -1,30 +1,35 @@
 @Metadata.layer: #PARTNER
-annotate view Z_C_LOCATION
-    with 
+annotate view Z_C_LOCATION with 
 {
-@UI.facet: [ { id:              'Location',
-                  purpose:         #STANDARD,
-                  type:            #IDENTIFICATION_REFERENCE,
-                  label:           'Ubicacion',
-                  position:        10 }]
+  @UI.facet: [ { 
+    id: 'Location',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Ubicación',
+    position: 10 
+  }]
 
-@UI           : {
-          lineItem      : [{position: 10, importance: #HIGH}],
-                           selectionField: [{position: 10 }],
-          identification: [{position: 10 , label: 'Id de ubicacion'  }]
-          }
-    LocationId;
-    @UI           : {
-      lineItem      : [{position: 20, importance: #HIGH}],
-                       selectionField: [{position: 20 }],
-                       identification: [{position: 20  }]
-      }
-    LocationName;
-    @UI           : {
-      lineItem      : [{position: 30, importance: #HIGH}],
-                       selectionField: [{position: 30 }],
-                        identification: [{position: 30  }]
-      }
-    Address;
-    
+  @UI: {
+    lineItem: [{ position: 10, importance: #HIGH }],
+    selectionField: [{ position: 10 }],
+    identification: [{ position: 10, label: 'Id de Ubicación' }]
+  }
+  @EndUserText.label: 'Id de Ubicación'
+  LocationId;
+
+  @UI: {
+    lineItem: [{ position: 20, importance: #HIGH }],
+    selectionField: [{ position: 20 }],
+    identification: [{ position: 20, label: 'Nombre de Ubicación' }]
+  }
+  @EndUserText.label: 'Nombre de Ubicación'
+  LocationName;
+
+  @UI: {
+    lineItem: [{ position: 30, importance: #HIGH }],
+    selectionField: [{ position: 30 }],
+    identification: [{ position: 30, label: 'Dirección' }]
+  }
+  @EndUserText.label: 'Dirección'
+  Address;
 }

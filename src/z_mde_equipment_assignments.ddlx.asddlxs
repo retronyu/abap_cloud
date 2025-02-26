@@ -1,128 +1,127 @@
 @Metadata.layer: #PARTNER
 
 @UI:{ headerInfo:{ typeName: 'Resumen' , typeNamePlural: 'Resumenes', title:{ type: #STANDARD ,label: 'Equipo', value: 'Equipmentid' }} }
-annotate entity Z_I_EQUIPMENT_ASSIGNMENTS with
+annotate entity Z_C_EQUIPMENT_ASSIGNMENTS with
 {
 
-  @UI.facet: [ { id:              'MANT_EQUI',
-                    purpose:         #STANDARD,
-                    type:            #IDENTIFICATION_REFERENCE,
-                    label:           'Datos de Mantenimiento',
-                    position:        10 },
-                    { id:              'LOCATION_EQUI',
-                    purpose:         #STANDARD,
-                    type:            #IDENTIFICATION_REFERENCE,
-                    label:           'Datos de Ubicacion',
-                    position:        20 }]
+  @UI.facet: [ { id: 'GENERAL_INFO',
+      purpose: #STANDARD,
+      type: #COLLECTION,
+      label: 'Información General',
+      position: 10 },
+    
+    { id: 'ASSIGNMENT_INFO',
+      purpose: #STANDARD,
+      type: #COLLECTION,
+      label: 'Asignaciones',
+      position: 20 },
 
-  @EndUserText.label: 'Id de el Equipo '
-  @UI           : {
-         lineItem      : [{position: 10, importance: #HIGH}],
-                           selectionField: [{position: 10 }]}
+    { id: 'MAINTENANCE_INFO',
+      purpose: #STANDARD,
+      type: #COLLECTION,
+      label: 'Mantenimientos',
+      position: 30 },
 
-  @Consumption.valueHelpDefinition: [{
-  entity: { name: 'ZVALUEHELP_EQUIPMENT', element: 'Equipmentid' }  }]
-  Equipmentid;
+    // Subfacetas de Información General
+    { id: 'Fieldgroup1-GENERAL',
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Datos del Equipo',
+      parentId: 'GENERAL_INFO',
+      targetQualifier: 'Fieldgroup1',
+      position: 10 },
 
-  @EndUserText.label: 'Id del Empleado'
+    { id: 'Fieldgroup2-LOCATION',
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Ubicación',
+      parentId: 'GENERAL_INFO',
+      targetQualifier: 'Fieldgroup2',
+      position: 20 },
+
+    // Subfaceta para asignaciones
+    { id: 'Fieldgroup3-ASSIGNMENT',
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Datos de Asignación',
+      parentId: 'ASSIGNMENT_INFO',
+      targetQualifier: 'Fieldgroup3',
+      position: 10 },
+
+    // Subfaceta para mantenimientos
+    { id: 'Fieldgroup4-MAINTENANCE',
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Historial de Mantenimiento',
+      parentId: 'MAINTENANCE_INFO',
+      targetQualifier: 'Fieldgroup4',
+      position: 10 }]
+
+   // Grupo de Datos del Equipo
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup1', position: 10 }]
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZVALUEHELP_EQUIPMENT', element: 'EquipmentId' } }]
+  @EndUserText.label: 'Id del Equipo'
   @Search.defaultSearchElement: true
-  @Search.fuzzinessThreshold: 0.70
-  @UI           : {
-     lineItem      : [{position: 20, importance: #HIGH}],
-                      selectionField: [{position: 20 }]
-     }
-  @Consumption.valueHelpDefinition: [{
-  entity: { name: 'ZVALUEHELP_EMPLOYEE', element: 'EmployeeId' }  }]
-  EmployeeId;
+  EquipmentId;
 
-  @EndUserText.label: 'Descripcion'
-  @UI           : {
-      lineItem      : [{position: 30, importance: #HIGH}]
-
-      }
+   @UI.fieldGroup: [{ qualifier: 'Fieldgroup1', position: 20 }]
+  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+  @UI.selectionField: [{ position: 20 }]
+  @EndUserText.label: 'Descripción'
   Description;
+    
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup1', position: 30 }]
+  @UI.lineItem: [{ position: 30, importance: #HIGH }]
+  @UI.selectionField: [{ position: 30 }]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZVALUEHELP_EQUIPMENT', element: 'EquipmentType' } }]
+  @EndUserText.label: 'Tipo de equipo'
+  EquipmentType;
 
-
-  @EndUserText.label: 'Tipo de Equipo'
-  @UI           : {
-      lineItem      : [{position: 40, importance: #HIGH}],
-                      selectionField: [{position: 40 }]
-      }
-  @Consumption.valueHelpDefinition: [{
-  entity: { name: 'ZVALUEHELP_EQUIPMENT', element: 'Equipmenttype' }  }]
-  Equipmenttype;
-
-
-  @EndUserText.label: 'Estatus '
-  @UI           : {
-      lineItem      : [{position: 50, importance: #HIGH}],
-                       selectionField: [{position: 50 }]
-      }
-  @Consumption.valueHelpDefinition: [{
-  entity: { name: 'ZVALUEHELP_EQUIPMENT', element: 'Status' }  }]
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup1', position: 40 }]
+  @UI.lineItem: [{ position: 40, importance: #HIGH }]
+  @UI.selectionField: [{ position: 40 }]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZVALUEHELP_EQUIPMENT', element: 'Status' } }]
+  @EndUserText.label: 'Estatus'
   Status;
 
-  @EndUserText.label: 'Id de Ubicacion '
-  @UI           : {
-      
-                       selectionField: [{position: 60 }],
-                       identification: [{ position: 20  }]
-      }
-  @Consumption.valueHelpDefinition: [{
-  entity: { name: 'ZVALUEHELP_LOCATION', element: 'LocationId' }  }]
+  // Grupo de Ubicación del Equipo
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup2', position: 10 }]
+  @UI.lineItem: [{ position: 50, importance: #HIGH }]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZVALUEHELP_LOCATION', element: 'LocationId' } }]
+  @EndUserText.label: 'Id de Ubicación'
   LocationId;
 
-  @EndUserText.label: 'Nombre de Ubicacion '
-  @UI           : {
-      
-                       selectionField: [{position: 70 }],
-                       identification: [{ position: 21  }]
-      }
-  @Consumption.valueHelpDefinition: [{
-  entity: { name: 'ZVALUEHELP_LOCATION', element: 'LocationName' }  }]
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup2', position: 20 }]
+  @UI.lineItem: [{ position: 60, importance: #HIGH }]
+  @EndUserText.label: 'Nombre de Ubicación'
   LocationName;
 
-  @EndUserText.label: 'Direccion '
-  @UI           : {
-      lineItem      : [{position: 30, importance: #HIGH}],
-                       selectionField: [{position: 30 }]
-      }
-  @Consumption.valueHelpDefinition: [{
-  entity: { name: 'ZVALUEHELP_LOCATION', element: 'Address' }  }]
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup2', position: 30 }]
+  @UI.lineItem: [{ position: 70, importance: #HIGH }]
+  @EndUserText.label: 'Dirección'
   Address;
 
-  @UI           : {
-      lineItem      : [{position: 80, importance: #HIGH}]
-
-      }
+  // Grupo de Datos de Asignación
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup3', position: 10 }]
+  @UI.lineItem: [{ position: 80, importance: #HIGH }]
+  @EndUserText.label: 'Id de Asignación'
   AssignmentId;
 
-
-
-  @UI           : {
-      lineItem      : [{position: 90, importance: #HIGH}]
-
-      }
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup3', position: 20 }]
+  @UI.lineItem: [{ position: 90, importance: #HIGH }]
+  @EndUserText.label: 'Fecha de Asignación'
   AssignmentDate;
 
-  @EndUserText.label: 'Id Mantenimiento '
-  @UI           : {
-      lineItem      : [{position: 100, importance: #HIGH}],
-       identification: [{position: 10 }]
-
-      }
+  // Grupo de Historial de Mantenimiento
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup4', position: 10 }]
+  @UI.lineItem: [{ position: 100, importance: #HIGH }]
+  @EndUserText.label: 'Id de Mantenimiento'
   MaintenanceId;
 
-  @EndUserText.label: 'Fecha de ultimo Mantenimiento '
-  @UI           : {
-      lineItem      : [{position: 110, importance: #HIGH}],
-                         identification: [{position: 11 }]
-      }
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup4', position: 20 }]
+  @UI.lineItem: [{ position: 110, importance: #HIGH }]
+  @EndUserText.label: 'Fecha de Último Mantenimiento'
   MaintenanceDate;
 
-  @UI           : {
-      lineItem      : [{position: 120, importance: #HIGH}]
-
-      }
+  @UI.fieldGroup: [{ qualifier: 'Fieldgroup4', position: 30 }]
+  @UI.lineItem: [{ position: 120, importance: #HIGH }]
+  @EndUserText.label: 'Descripción de Mantenimiento'
   Descripcion;
 }

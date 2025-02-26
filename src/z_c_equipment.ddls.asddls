@@ -11,23 +11,25 @@
 define root view entity Z_C_EQUIPMENT
   as select from Z_Equipment
 
+association [0..1] to Z_Location as _Location on $projection.LocationId = _Location.LocationId
+  association [0..1] to Z_Maintenance as _LastMaintenance on $projection.EquipmentId = _LastMaintenance.EquipmentId
 {
-
-
-
-  key Equipmentid,
+  key EquipmentId,
       Description,
-      Equipmenttype,
+      EquipmentType,
       Status,
       LocationId,
-      Lastmaintenancedate,
-      
-       case Status
-        when 'MNT_ACTIVO' then 1  // Rojo (Crítico)
-        when 'ACTIVO' then 3       // Verde (Positivo)
-        when 'INACTIVO' then 0     // Neutral
-        else 2                     // Amarillo (Crítico moderado)
-      end as StatusCriticality
-      
+      LastMaintenanceDate,
 
+      _Location.LocationName,
+      _Location.Address,
+
+      _LastMaintenance.Description as LastMaintenanceDescription,
+
+      case Status
+        when 'MNT' then 1  // Rojo (Crítico) - En Mantenimiento
+        when 'ACT' then 3   // Verde (Positivo) - En Uso
+        when 'INA' then 0   // Neutral - Fuera de Servicio
+        else 2              // Amarillo (Moderado)
+      end as StatusCriticality
 }

@@ -6,7 +6,9 @@
 "ZLOCATION_GP"
 ],
 "ASSOCIATED":
-[],
+[
+"ZEQUIPMENT_GP"
+],
 "BASE":
 [],
 "ANNO_REF":
