@@ -9,7 +9,7 @@
 }
 define view entity ZVALUEHELP_EQUIPMENT as select from zequipment_gp
 {
-    key equipmentid as Equipmentid,
+   key equipment_id as Equipmentid,
     description as Description,
     equipmenttype as Equipmenttype,
     status as Status,

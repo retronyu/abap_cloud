@@ -1,5 +1,13 @@
-CLASS zbp_c_equipment DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF z_c_equipment.
+class ZBP_C_EQUIPMENT definition
+  public
+  create private .
+
+public section.
+protected section.
+private section.
 ENDCLASS.
 
-CLASS zbp_c_equipment IMPLEMENTATION.
+
+
+CLASS ZBP_C_EQUIPMENT IMPLEMENTATION.
 ENDCLASS.
