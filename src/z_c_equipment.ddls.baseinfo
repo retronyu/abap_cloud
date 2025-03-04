@@ -3,9 +3,7 @@
 {
 "FROM":
 [
-"Z_EQUIPMENT",
-"Z_LOCATION",
-"Z_MAINTENANCE"
+"Z_EQUIPMENT"
 ],
 "ASSOCIATED":
 [],

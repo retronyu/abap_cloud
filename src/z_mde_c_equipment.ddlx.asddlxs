@@ -51,16 +51,18 @@ annotate view Z_C_EQUIPMENT with
     
       
   ]
+  
+
     //Btn Marcar en reparacion
-  @UI.identification: [{ type: #FOR_ACTION, dataAction: 'MarcarComoEnReparacion', label: 'Marcar como en Reparación', position: 20 }]
+  //@UI.identification: [{ type: #FOR_ACTION, dataAction: 'MarcarComoEnReparacion', label: 'Marcar como en Reparación', position: 20 }]
 
   @UI.fieldGroup: [{ qualifier: 'Fieldgroup1', position: 10 }]
-  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  @UI.lineItem: [{ position: 10, importance: #HIGH, type: #FOR_ACTION, dataAction: 'marcarComoEnReparacion', label: 'Marcar como en Reparación' }]
   //@UI.identification: [{ position: 10 }]
   @Consumption.valueHelpDefinition: [{ entity: { name: 'ZVALUEHELP_EQUIPMENT', element: 'Equipmentid' } }]
   @EndUserText.label: 'Id del Equipo'
   @Search.defaultSearchElement: true
-  Equipmentid;
+  EquipmentId;
 
   @UI.fieldGroup: [{ qualifier: 'Fieldgroup1', position: 20 }]
   @UI.lineItem: [{ position: 20, importance: #HIGH }]
@@ -73,7 +75,7 @@ annotate view Z_C_EQUIPMENT with
   @UI.selectionField: [{ position: 30 }]
   @Consumption.valueHelpDefinition: [{ entity: { name: 'ZVALUEHELP_EQUIPMENT', element: 'Equipmenttype' } }]
   @EndUserText.label: 'Tipo de equipo'
-  Equipmenttype;
+  EquipmentType;
 
   @UI.fieldGroup: [{ qualifier: 'Fieldgroup3', position: 20 }]
   @UI.lineItem: [{ position: 40, importance: #HIGH , criticality: 'StatusCriticality'}]
@@ -91,7 +93,7 @@ annotate view Z_C_EQUIPMENT with
   @UI.fieldGroup: [{ qualifier: 'Fieldgroup2', position: 20 }]
   @UI.lineItem: [{ position: 60, importance: #HIGH }]
   @EndUserText.label: 'Último mantenimiento'
-  Lastmaintenancedate;
+  LastMaintenanceDate;
 
 
 

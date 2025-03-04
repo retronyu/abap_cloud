@@ -1,19 +1,41 @@
-managed implementation in class zbp_c_equipment unique;
-strict ( 2 );
+managed implementation in class zbp_c_equipment1 unique;
+strict ;
 
-define behavior for Z_C_EQUIPMENT //alias <alias_name>
+define behavior for Z_C_EQUIPMENT alias Equipment
 persistent table zequipment_gp
 lock master
 authorization master ( instance )
-//etag master Lastmaintenancedate;
-
+//etag master <field_name>
 {
+
   create;
   update;
   delete;
-  field ( readonly ) Equipmentid;
-  action MarcarComoEnReparacion result [1] $self;
+  field (readonly) EquipmentId,LastMaintenanceDate;  // No se pueden modificar
+  field (mandatory) Description, EquipmentType, Status, LocationId; // Obligatorios
 
-  factory action newEquipment [1] ;
+  //association _Location;
+  //association _LastMaintenance;
+
+
+  action marcarComoEnReparacion result [1] $self ;
+
+
+
+
+  //validation Validate_Location on save{ field LocationId;}
+
+mapping for zequipment_gp{
+EquipmentId = equipment_id;
+Description = description;
+EquipmentType = equipmenttype;
+Status = status;
+LocationId = location_id;
+LastMaintenanceDate = lastmaintenancedate;
+
+
+
+
+}
 
 }

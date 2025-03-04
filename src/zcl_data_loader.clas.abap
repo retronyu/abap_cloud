@@ -4,7 +4,7 @@ CLASS zcl_data_loader DEFINITION
   CREATE PUBLIC .
 
   PUBLIC SECTION.
-   CONSTANTS: c_max_records TYPE i VALUE 10.
+    CONSTANTS: c_max_records TYPE i VALUE 10.
     METHODS: insert_locations IMPORTING out TYPE REF TO if_oo_adt_classrun_out,
       insert_employees IMPORTING out TYPE REF TO if_oo_adt_classrun_out,
       insert_equipments IMPORTING out TYPE REF TO if_oo_adt_classrun_out,
@@ -27,6 +27,8 @@ CLASS zcl_data_loader IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
+
+
     ejecutar( out ).
 
 
@@ -111,7 +113,7 @@ CLASS zcl_data_loader IMPLEMENTATION.
 
     DO 5 TIMES.
       lv_index = sy-index.
-
+      out->write( lv_index ).
       wa_equipment-equipment_id     = |EQP{ lv_index WIDTH = 3 PAD = '0' }|.
       wa_equipment-description      = |Equipo { lv_index }|.
       wa_equipment-equipmenttype    = 'GENERAL'.
@@ -120,6 +122,8 @@ CLASS zcl_data_loader IMPLEMENTATION.
       wa_equipment-lastmaintenancedate = generate_random_date( ).
 
       APPEND wa_equipment TO itab_equipments.
+
+
     ENDDO.
 
     INSERT zequipment_gp FROM TABLE @itab_equipments.

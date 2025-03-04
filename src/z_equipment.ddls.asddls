@@ -16,6 +16,9 @@ association [0..*] to zmaintenance_gp as _Maintenances on _Maintenances.equipmen
 
        _Location.location_id  as LocationId,  
        _Location.location_name as LocationName,  // Información de la ubicación
+       _Location.address as Address, 
+      _Maintenances.maintenance_id as MaintenanceId, 
+       _Maintenances.description as LastMaintenanceDescription,
        
        lastmaintenancedate as LastMaintenanceDate,
 
@@ -23,6 +26,7 @@ association [0..*] to zmaintenance_gp as _Maintenances on _Maintenances.equipmen
        created_by          as CreatedBy,
 
        _Maintenances       // Asociación al historial de mantenimientos
+       
 }
 
 //

@@ -10,7 +10,7 @@ lock master
   create;
   update;
   delete;
- // field ( readonly ) LocationId;
+  field ( readonly ) LocationId;
 
  mapping for zlocation_gp
  {

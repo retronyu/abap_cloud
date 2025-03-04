@@ -1,10 +1,28 @@
-projection;
-//strict ( 2 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+managed implementation in class zbp_c_assignment unique;
+strict ( 2 );
 
-define behavior for Z_C_ASSIGNMENT alias c_assignment
-use etag
+define behavior for Z_C_ASSIGNMENT alias ASSIGNMENT
+persistent table zassignment_gp
+lock master
+authorization master ( instance )
+//etag master <field_name>
 {
-  use create;
-  use update;
-  use delete;
+  create;
+  update;
+  delete;
+  field ( readonly ) AssignmentId;
+
+
+
+ action AsignarEquipoAEmpleado  result  [1] $self;
+
+ mapping for  zassignment_gp
+ {
+ AssignmentId = assignment_id;
+ EquipmentId = equipment_id;
+EmployeeId = employee_id;
+ AssignmentDate = assignment_date;
+
+ }
+
 }

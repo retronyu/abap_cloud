@@ -22,6 +22,7 @@ annotate view Z_C_ASSIGNMENT with
     selectionField: [{ position: 20 }],
     identification: [{ position: 20, label: 'Id de Equipo' }]
   }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZVALUEHELP_EQUIPMENT', element: 'EquipmentId' } }]
   @EndUserText.label: 'Id de Equipo'
   EquipmentId;
 
@@ -31,13 +32,30 @@ annotate view Z_C_ASSIGNMENT with
     identification: [{ position: 30, label: 'Id de Empleado' }]
   }
   @EndUserText.label: 'Id de Empleado'
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZVALUEHELP_EMPLOYEE', element: 'EmployeeId' } }]
   EmployeeId;
 
   @UI: {
     lineItem: [{ position: 40, importance: #HIGH }],
     selectionField: [{ position: 40 }],
-    identification: [{ position: 40, label: 'Fecha de Asignación' }]
+    identification: [{ position: 40, label: 'Nombre de Empleado' }]
   }
-  @EndUserText.label: 'Fecha de Asignación'
+  @EndUserText.label: 'Nombre de Empleado'
+  EmployeeFirstName;
+  
+   @UI: {
+    lineItem: [{ position: 50, importance: #HIGH }],
+    selectionField: [{ position: 50 }],
+    identification: [{ position: 50, label: 'Apellido de Empleado' }]
+  }
+  @EndUserText.label: 'Apellido de Empleado'
+  EmployeeLastName;
+  
+    @UI: {
+    lineItem: [{ position: 60, importance: #HIGH }],
+    selectionField: [{ position: 60 }],
+    identification: [{ position: 60, label: 'Fecha de asigancion' }]
+  }
+  @EndUserText.label: 'Fecha de asigancion '
   AssignmentDate;
 }

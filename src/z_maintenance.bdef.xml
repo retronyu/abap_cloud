@@ -3,25 +3,25 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <BDEF>
-    <NAME>Z_C_ASSIGNMENT</NAME>
+    <NAME>Z_MAINTENANCE</NAME>
     <TYPE>BDEF/BDO</TYPE>
-    <DESCRIPTION>Vista consumo</DESCRIPTION>
+    <DESCRIPTION>Vista</DESCRIPTION>
     <DESCRIPTION_TEXT_LIMIT>60</DESCRIPTION_TEXT_LIMIT>
     <LANGUAGE>ES</LANGUAGE>
     <LINKS>
      <item>
-      <HREF>./z_c_assignment/source/main/versions</HREF>
+      <HREF>./z_maintenance/source/main/versions</HREF>
       <REL>http://www.sap.com/adt/relations/versions</REL>
       <TITLE>Historic versions</TITLE>
      </item>
      <item>
-      <HREF>./z_c_assignment/source/main</HREF>
+      <HREF>./z_maintenance/source/main</HREF>
       <REL>http://www.sap.com/adt/relations/source</REL>
       <TYPE>text/plain</TYPE>
       <TITLE>Source Content</TITLE>
      </item>
      <item>
-      <HREF>./z_c_assignment/source/main</HREF>
+      <HREF>./z_maintenance/source/main</HREF>
       <REL>http://www.sap.com/adt/relations/source</REL>
       <TYPE>text/html</TYPE>
       <TITLE>Source Content (HTML)</TITLE>
@@ -29,7 +29,7 @@
     </LINKS>
     <MASTER_LANGUAGE>ES</MASTER_LANGUAGE>
     <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
-    <SOURCE_URI>./z_c_assignment/source/main</SOURCE_URI>
+    <SOURCE_URI>./z_maintenance/source/main</SOURCE_URI>
     <SOURCE_TYPE>ABAP_SOURCE</SOURCE_TYPE>
     <SOURCE_FIXED_POINT_ARITHMETIC>true</SOURCE_FIXED_POINT_ARITHMETIC>
     <SOURCE_UNICODE_CHECKS_ACTIVE>true</SOURCE_UNICODE_CHECKS_ACTIVE>

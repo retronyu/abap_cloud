@@ -9,10 +9,11 @@
 @Metadata.allowExtensions: true
 @Search.searchable: true
 define root view entity Z_C_EQUIPMENT
-  as select from Z_Equipment
+  as select from Z_Equipment as _Equipment
 
-association [0..1] to Z_Location as _Location on $projection.LocationId = _Location.LocationId
-  association [0..1] to Z_Maintenance as _LastMaintenance on $projection.EquipmentId = _LastMaintenance.EquipmentId
+
+  
+  
 {
   key EquipmentId,
       Description,
@@ -21,10 +22,10 @@ association [0..1] to Z_Location as _Location on $projection.LocationId = _Locat
       LocationId,
       LastMaintenanceDate,
 
-      _Location.LocationName,
-      _Location.Address,
-
-      _LastMaintenance.Description as LastMaintenanceDescription,
+     LocationName,
+    Address,
+     MaintenanceId,
+     // _LastMaintenance.Description as LastMaintenanceDescription,
 
       case Status
         when 'MNT' then 1  // Rojo (Crítico) - En Mantenimiento
@@ -32,4 +33,8 @@ association [0..1] to Z_Location as _Location on $projection.LocationId = _Locat
         when 'INA' then 0   // Neutral - Fuera de Servicio
         else 2              // Amarillo (Moderado)
       end as StatusCriticality
+     
+     // _Location,       
+     // _LastMaintenance 
+     
 }
